@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Responses\ApiPagination;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 abstract class Controller
 {
+    use AuthorizesRequests;
+
     protected function perPage(Request $request): int
     {
         $limit = (int) $request->query('limit', 15);
