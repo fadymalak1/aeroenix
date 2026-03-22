@@ -4,6 +4,7 @@
     "description": "aeroenix company website and admin dashboard API",
     "require": {
         "php": "^8.2",
+        "symfony/console": "~7.3.0",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9"

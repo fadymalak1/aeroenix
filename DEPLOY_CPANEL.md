@@ -191,10 +191,12 @@ This project does not define a custom schedule in the repository. If you add Lar
 
 | Issue | What to check |
 |--------|----------------|
+| **`Call to a member function make() on null` in `Command.php` when running `artisan` or Composer scripts** | Often **`symfony/console` 7.4.x** (pre-release) with Laravel. This project pins **`symfony/console` to `~7.3.0`** in `composer.json`. Run **`composer update symfony/console --with-dependencies`** (or `composer update`), then `php artisan package:discover`. Check with `composer show symfony/console` — it should show **7.3.x**, not 7.4. If you must unblock Composer before that, use `composer install --no-dev --optimize-autoloader --no-scripts` (skips `package:discover` until Artisan works). |
 | **500 error** | `storage/logs/laravel.log`, PHP version ≥ 8.2, permissions on `storage` / `bootstrap/cache`. |
 | **Composer memory error** | Raise `memory_limit` in **MultiPHP INI Editor** or run `COMPOSER_MEMORY_LIMIT=-1 composer install ...`. |
 | **CORS errors from browser** | `CORS_ALLOWED_ORIGINS`, correct `APP_URL`, HTTPS vs HTTP mismatch. |
 | **Mixed content** | Use `https` everywhere for `APP_URL` and frontend. |
+| **`php` CLI version wrong on cPanel** | Use the same PHP as in cPanel (e.g. **ea-php82**): `/opt/cpanel/ea-php82/root/usr/bin/php -v` and `php artisan ...`. |
 
 ---
 
